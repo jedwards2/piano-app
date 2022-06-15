@@ -8,6 +8,7 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   height: 100%;
 }
 
@@ -64,4 +65,9 @@ html, body {
 
 .chosen {
   background-color: slateblue;
+}
+
+.slider--div {
+  margin-top: 20px;
+  width: 200px;
 }

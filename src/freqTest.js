@@ -89,20 +89,18 @@ let data = [
   { name: "C8", num: "108", frq: 4186.009 },
 ];
 
-function findNotes(num) {
+function findNotes(num, freqBand) {
   let exactNotes = [];
-  let closeNotes = [];
 
   let frq = findFrq(num);
-  // let undertones = generateUndertones(frq);
+  let undertones = generateUndertones(frq);
   let overtones = generateOvertones(frq);
-  let partials = overtones;
-  // let partials = undertones.concat(overtones);
+  let partials = undertones.concat(overtones);
   //add to exact notes list
   partials.forEach((partial) => {
     data.forEach((noteObj) => {
       if (
-        checkIfExact(noteObj.frq, partial) &&
+        checkIfExact(noteObj.frq, partial, freqBand) &&
         !exactNotes.includes(noteObj.name)
       ) {
         exactNotes.push(noteObj.name);
@@ -110,35 +108,13 @@ function findNotes(num) {
     });
   });
 
-  partials.forEach((partial) => {
-    data.forEach((noteObj) => {
-      if (
-        checkIfClose(noteObj.frq, partial) &&
-        !closeNotes.includes(noteObj.name)
-      ) {
-        closeNotes.push(noteObj.name);
-      }
-    });
-  });
-
   return exactNotes;
 }
 
-function checkIfExact(frq, partial) {
+function checkIfExact(frq, partial, freqBand) {
   //Exact bounds
-  const upperBound = partial * 1.01;
-  const lowerBound = partial * 0.99;
-  if (frq < upperBound && frq > lowerBound) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-function checkIfClose(frq, partial) {
-  //Close bounds
-  const upperBound = partial * 1.05;
-  const lowerBound = partial * 0.95;
+  const upperBound = partial * (1 + freqBand);
+  const lowerBound = partial * (1 - freqBand);
   if (frq < upperBound && frq > lowerBound) {
     return true;
   } else {

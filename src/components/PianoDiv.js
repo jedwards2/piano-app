@@ -3,11 +3,12 @@ import PianoKey from "./PianoKey";
 import findNotes from "../freqTest";
 import { useState } from "react";
 
-function PianoDiv() {
+function PianoDiv({ freqBand }) {
   const [chosenNotes, setChosenNotes] = useState([]);
   const noteClick = (note) => {
-    setChosenNotes(findNotes(note.num));
+    setChosenNotes(findNotes(note.num, freqBand));
   };
+
   let keys = data.map((noteObj) => {
     return (
       <PianoKey
