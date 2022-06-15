@@ -61,3 +61,7 @@ html, body {
 .offset {
   margin: 0 0 0 -1rem;
 }
+
+.chosen {
+  background-color: slateblue;
+}
