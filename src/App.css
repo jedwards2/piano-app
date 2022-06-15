@@ -1,38 +1,63 @@
-.App {
-  text-align: center;
+html, body {
+  font-size: 25%;
+  height: 100%;
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+
+.piano--div {
+  border: 1px solid black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.white,
+.black {
+  position: relative;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0.5rem 0;
+}
+
+.white:hover {
+  background-color: gray
+}
+
+.black:hover {
+  background-color:gray
+}
+
+
+.piano--div div:first-child {
+  border-left: none;
+}
+
+
+.white {
+  height: 12.5rem;
+  width: 3.5rem;
+  z-index: 1;
+  border-left: 1px solid hsl(0, 0%, 73%);
+  border-bottom: 1px solid hsl(0, 0%, 73%);
+
+}
+
+.black {
+  height: 8rem;
+  width: 2rem;
+  margin: 0 0 0 -1rem;
+  z-index: 2;
+  border: 1px solid black;
+  background-color: black
+}
+
+.offset {
+  margin: 0 0 0 -1rem;
 }
