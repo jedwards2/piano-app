@@ -8,6 +8,9 @@ function App() {
 
   return (
     <div className="app">
+      <div>
+        <p>Frequency Band Around Harmonics: {freqBand}</p>
+      </div>
       <div className="slider--div">
         <Slider
           defaultValue={0.02}
