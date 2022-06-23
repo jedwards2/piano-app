@@ -20,7 +20,7 @@ function PianoDiv({
         note={noteObj}
         key={noteObj.name}
         noteClick={noteClick}
-        chosenNotes={currentPartials}
+        currentPartials={currentPartials}
         currentFundamental={currentFundamental}
       />
     );

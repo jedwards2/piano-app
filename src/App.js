@@ -8,7 +8,6 @@ function App() {
   const [freqBand, setFreqBand] = useState(0.02);
   const [currentPartials, setCurrentPartials] = useState([]);
   const [currentFundamental, setCurrentFundamental] = useState({});
-
   return (
     <div className="app">
       <PianoDiv
@@ -32,7 +31,14 @@ function App() {
         />
       </div>
       <div>{currentFundamental.name}</div>
-      {currentFundamental.name ? <FundamentalGraph /> : ""}
+      {currentFundamental.name ? (
+        <FundamentalGraph
+          currentPartials={currentPartials}
+          currentFundamental={currentFundamental}
+        />
+      ) : (
+        ""
+      )}
     </div>
   );
 }

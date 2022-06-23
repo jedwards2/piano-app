@@ -104,7 +104,7 @@ function findNotes(num, freqBand) {
         checkFreqBand(noteObj.frq, partial, freqBand) &&
         !notes.includes(noteObj.name)
       ) {
-        notes.push(noteObj.name);
+        notes.push(noteObj);
       }
     });
   });
