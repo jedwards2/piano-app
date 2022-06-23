@@ -1,12 +1,10 @@
 import { data } from "../freqTest";
 import PianoKey from "./PianoKey";
 import findNotes from "../freqTest";
-import { useState } from "react";
 
-function PianoDiv({ freqBand }) {
-  const [chosenNotes, setChosenNotes] = useState([]);
+function PianoDiv({ freqBand, currentPartials, setCurrentPartials }) {
   const noteClick = (note) => {
-    setChosenNotes(findNotes(note.num, freqBand));
+    setCurrentPartials(findNotes(note.num, freqBand));
   };
 
   let keys = data.map((noteObj) => {
@@ -15,7 +13,7 @@ function PianoDiv({ freqBand }) {
         note={noteObj}
         key={noteObj.name}
         noteClick={noteClick}
-        chosenNotes={chosenNotes}
+        chosenNotes={currentPartials}
       />
     );
   });
