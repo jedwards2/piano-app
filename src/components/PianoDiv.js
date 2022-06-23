@@ -2,8 +2,15 @@ import { data } from "../freqTest";
 import PianoKey from "./PianoKey";
 import findNotes from "../freqTest";
 
-function PianoDiv({ freqBand, currentPartials, setCurrentPartials }) {
+function PianoDiv({
+  freqBand,
+  currentPartials,
+  setCurrentPartials,
+  currentFundamental,
+  setCurrentFundamental,
+}) {
   const noteClick = (note) => {
+    setCurrentFundamental(note.name);
     setCurrentPartials(findNotes(note.num, freqBand));
   };
 
@@ -14,6 +21,7 @@ function PianoDiv({ freqBand, currentPartials, setCurrentPartials }) {
         key={noteObj.name}
         noteClick={noteClick}
         chosenNotes={currentPartials}
+        currentFundamental={currentFundamental}
       />
     );
   });

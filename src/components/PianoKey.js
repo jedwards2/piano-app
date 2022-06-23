@@ -1,4 +1,4 @@
-function PianoKey({ note, noteClick, chosenNotes }) {
+function PianoKey({ note, noteClick, chosenNotes, currentFundamental }) {
   let offsetNote =
     (note.name.includes("D") && !note.name.includes("/")) ||
     (note.name.includes("E") && !note.name.includes("/")) ||
@@ -12,7 +12,9 @@ function PianoKey({ note, noteClick, chosenNotes }) {
     <div
       className={`${note.name.includes("/") ? "black" : "white"} ${
         offsetNote ? "offset" : ""
-      } ${chosenNotes.includes(note.name) ? "chosen" : ""}`}
+      } ${chosenNotes.includes(note.name) ? "chosen" : ""} ${
+        note.name === currentFundamental ? "currentFund" : ""
+      }`}
       onClick={() => noteClick(note)}
     ></div>
   );

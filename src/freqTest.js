@@ -90,28 +90,29 @@ let data = [
 ];
 
 function findNotes(num, freqBand) {
-  let exactNotes = [];
+  let notes = [];
 
   let frq = findFrq(num);
   let undertones = generateUndertones(frq);
   let overtones = generateOvertones(frq);
   let partials = undertones.concat(overtones);
+
   //add to exact notes list
   partials.forEach((partial) => {
     data.forEach((noteObj) => {
       if (
-        checkIfExact(noteObj.frq, partial, freqBand) &&
-        !exactNotes.includes(noteObj.name)
+        checkFreqBand(noteObj.frq, partial, freqBand) &&
+        !notes.includes(noteObj.name)
       ) {
-        exactNotes.push(noteObj.name);
+        notes.push(noteObj.name);
       }
     });
   });
 
-  return exactNotes;
+  return notes;
 }
 
-function checkIfExact(frq, partial, freqBand) {
+function checkFreqBand(frq, partial, freqBand) {
   //Exact bounds
   const upperBound = partial * (1 + freqBand);
   const lowerBound = partial * (1 - freqBand);

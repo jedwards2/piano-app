@@ -6,6 +6,7 @@ import Slider from "@mui/material/Slider";
 function App() {
   const [freqBand, setFreqBand] = useState(0.02);
   const [currentPartials, setCurrentPartials] = useState([]);
+  const [currentFundamental, setCurrentFundamental] = useState("C4");
 
   return (
     <div className="app">
@@ -13,6 +14,8 @@ function App() {
         freqBand={freqBand}
         currentPartials={currentPartials}
         setCurrentPartials={setCurrentPartials}
+        currentFundamental={currentFundamental}
+        setCurrentFundamental={setCurrentFundamental}
       />
       <div>
         <p>Frequency Band Around Harmonics: {freqBand}</p>
@@ -27,6 +30,7 @@ function App() {
           onChange={(e) => setFreqBand(e.target.value)}
         />
       </div>
+      <div>{currentFundamental}</div>
     </div>
   );
 }
