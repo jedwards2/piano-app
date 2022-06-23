@@ -2,11 +2,12 @@ import "./App.css";
 import { useState } from "react";
 import PianoDiv from "./components/PianoDiv";
 import Slider from "@mui/material/Slider";
+import FundamentalGraph from "./components/FundamentalGraph";
 
 function App() {
   const [freqBand, setFreqBand] = useState(0.02);
   const [currentPartials, setCurrentPartials] = useState([]);
-  const [currentFundamental, setCurrentFundamental] = useState("C4");
+  const [currentFundamental, setCurrentFundamental] = useState({});
 
   return (
     <div className="app">
@@ -30,7 +31,8 @@ function App() {
           onChange={(e) => setFreqBand(e.target.value)}
         />
       </div>
-      <div>{currentFundamental}</div>
+      <div>{currentFundamental.name}</div>
+      {currentFundamental.name ? <FundamentalGraph /> : ""}
     </div>
   );
 }

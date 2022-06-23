@@ -10,7 +10,7 @@ function PianoDiv({
   setCurrentFundamental,
 }) {
   const noteClick = (note) => {
-    setCurrentFundamental(note.name);
+    setCurrentFundamental(note);
     setCurrentPartials(findNotes(note.num, freqBand));
   };
 

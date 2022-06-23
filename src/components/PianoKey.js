@@ -13,7 +13,7 @@ function PianoKey({ note, noteClick, chosenNotes, currentFundamental }) {
       className={`${note.name.includes("/") ? "black" : "white"} ${
         offsetNote ? "offset" : ""
       } ${chosenNotes.includes(note.name) ? "chosen" : ""} ${
-        note.name === currentFundamental ? "currentFund" : ""
+        note.name === currentFundamental.name ? "currentFund" : ""
       }`}
       onClick={() => noteClick(note)}
     ></div>
