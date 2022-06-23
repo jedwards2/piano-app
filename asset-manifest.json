@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/piano-app/static/css/main.ecc7ad4f.css",
+    "main.js": "/piano-app/static/js/main.f9f144eb.js",
+    "index.html": "/piano-app/index.html",
+    "main.ecc7ad4f.css.map": "/piano-app/static/css/main.ecc7ad4f.css.map",
+    "main.f9f144eb.js.map": "/piano-app/static/js/main.f9f144eb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ecc7ad4f.css",
+    "static/js/main.f9f144eb.js"
+  ]
+}
