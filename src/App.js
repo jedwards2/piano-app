@@ -3,11 +3,13 @@ import { useState } from "react";
 import PianoDiv from "./components/PianoDiv";
 import Slider from "@mui/material/Slider";
 import FundamentalGraph from "./components/FundamentalGraph";
+import findNotes from "./freqTest";
 
 function App() {
   const [freqBand, setFreqBand] = useState(0.02);
   const [currentPartials, setCurrentPartials] = useState([]);
   const [currentFundamental, setCurrentFundamental] = useState({});
+
   return (
     <div className="app">
       <PianoDiv
@@ -27,7 +29,10 @@ function App() {
           marks
           min={0.001}
           max={0.09}
-          onChange={(e) => setFreqBand(e.target.value)}
+          onChange={(e) => {
+            setFreqBand(e.target.value);
+            setCurrentPartials(findNotes(currentFundamental.num, freqBand));
+          }}
         />
       </div>
       <div>{currentFundamental.name}</div>

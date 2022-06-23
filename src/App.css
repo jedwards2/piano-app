@@ -76,3 +76,8 @@ html, body {
 .currentFund {
   background-color: red
 }
+
+.graph--main {
+  display: flex;
+  gap: 40px;
+}

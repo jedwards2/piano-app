@@ -12,7 +12,7 @@ function FundamentalGraph({ currentPartials, currentFundamental }) {
   let overtoneRows = overtones.map((overtone) => {
     return (
       <p>
-        {overtone.name}: {overtone.frq}
+        {overtone.num}: {overtone.name}: {overtone.frq}
       </p>
     );
   });
@@ -20,13 +20,13 @@ function FundamentalGraph({ currentPartials, currentFundamental }) {
   let undertoneRows = undertones.map((undertone) => {
     return (
       <p>
-        {undertone.name}: {undertone.frq}
+        {undertone.num}: {undertone.name}: {undertone.frq}
       </p>
     );
   });
 
   return (
-    <div>
+    <div className="graph--main">
       <div>
         <h1>Undertones</h1>
         {undertoneRows}
